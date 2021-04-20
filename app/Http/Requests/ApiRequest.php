@@ -6,7 +6,7 @@ use App\Traits\ApiRespone;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 
 abstract class ApiRequest extends FormRequest
 {
@@ -22,7 +22,7 @@ abstract class ApiRequest extends FormRequest
     {
         throw new HttpResponseException($this->apiError(
             $validator->errors(),
-            Response::HTTP_UNPROCESSABLE_ENTITY,
+            Response::HTTP_UNPROCESSABLE_ENTITY
         ));
     }
 
